@@ -61,8 +61,8 @@ return [
             'engine' => null,
         ],
 
-        'pgsql' => array(
-        'driver'   => 'pgsql',
+        'pgsql' => [
+           'driver'   => 'pgsql',
         'host'     => $host,
         'database' => $database,
         'username' => $username,
@@ -70,7 +70,7 @@ return [
         'charset'  => 'utf8',
         'prefix'   => '',
         'schema'   => 'public',
-    ),
+        ],
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
