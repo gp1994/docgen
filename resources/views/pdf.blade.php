@@ -14,12 +14,6 @@
 		@if ($con->tipe != 'Bernyanyi')
 		<b>{{$con->urutan}}. {{$con->judul}}</b><br>
 		{!!$con->isi!!}<br>
-		@elseif ($con->tipe != 'Epistel')
-		<b>{{$con->urutan}}. {{$con->judul}}</b><br>
-		{!!$con->isi!!}<br>
-		@elseif ($con->tipe != 'Khotbah')
-		<b>{{$con->urutan}}. {{$con->judul}}</b><br>
-		{!!$con->isi!!}<br>
 		@else
 		<b>{{$con->urutan}}. {{$con->tipe}}: {{$con->judul}}</b><br>
 		{!!$con->isi!!}<br><br>
