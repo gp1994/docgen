@@ -20,7 +20,7 @@ return [
     |
     */
 
-    'default' => 'pgsql',,
+    'default' => 'pgsql',
 
     /*
     |--------------------------------------------------------------------------
@@ -61,8 +61,8 @@ return [
             'engine' => null,
         ],
 
-        'pgsql' => [
-           'driver'   => 'pgsql',
+       'pgsql' => array(
+        'driver'   => 'pgsql',
         'host'     => $host,
         'database' => $database,
         'username' => $username,
@@ -70,7 +70,7 @@ return [
         'charset'  => 'utf8',
         'prefix'   => '',
         'schema'   => 'public',
-        ],
+    ),
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
