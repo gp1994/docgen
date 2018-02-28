@@ -11,12 +11,12 @@
 <hr>
 @foreach($content as $con)
 	@if ($con->deleted == '0')
-		@if ($con->tipe != 'Bernyanyi')
-		<b>{{$con->urutan}}. {{$con->judul}}</b><br>
-		{!!$con->isi!!}<br>
-		@else
+		@if ($con->tipe == 'Bernyanyi' || $con->tipe == 'Epistel' || $con->tipe == Khotbah')
 		<b>{{$con->urutan}}. {{$con->tipe}}: {{$con->judul}}</b><br>
 		{!!$con->isi!!}<br><br>
+		@else
+		<b>{{$con->urutan}}. {{$con->judul}}</b><br>
+		{!!$con->isi!!}<br>
 		@endif
 	@endif
 @endforeach
