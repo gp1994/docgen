@@ -56,9 +56,8 @@ class DocController extends Controller
     public function insertDoc(Request $request)
     {
     	$max_id = Document::max('id');
-        $this->validate($request,['nama'=>'required']);
     	Document::create([
-				'nama' => $request -> input('nama'),
+				'nama' => $request -> input('namae'),
                 'id_pengguna' => Session::get('id')
 		]);
     	return redirect ('home');
@@ -67,7 +66,6 @@ class DocController extends Controller
 	public function editDoc(Request $request)
 	{
 		$document = Document::find($request->input('iddoc'));
-		$this->validate($request,['nama'=>'required']);
 		$document->nama = $request->input('nama');
 		$document->save();
 		return redirect('home');

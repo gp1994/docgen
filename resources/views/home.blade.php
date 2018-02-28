@@ -67,6 +67,7 @@ $(function() {
                 <div class="modal-body">
                   <form method="POST" action="./insertDoc" id="adddoc">
                     <input name="_token" type="hidden" value="{{ csrf_token() }}">
+                    <input id="iddoinput" type="hidden" name="iddo">
                     <input id="docinput" type="text" name="namae" required>
                     <input type="submit" value="Save" />
                   </form>

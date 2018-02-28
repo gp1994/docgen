@@ -6,8 +6,8 @@
 
 	<div class="col-sm-6">
 	Judul konten: <input type='text' name='judul' value='{{$content->judul}}'/>
+        <select name="tipe" class="form control">
 	@if ($content->tipe == 'Bernyanyi')
-	<select name="tipe" class="form control">
         <option value="">Select Type</option>
         <option value="Bernyanyi" selected>Bernyanyi</option>
         <option value="Doa">Doa</option>
@@ -17,22 +17,17 @@
         <option value="Khotbah">Khotbah</option>
         <option value="Koor">Koor</option>
         <option value="Others">Others</option>
-</select>
-@endif
-@if ($content->tipe == 'Doa')
-	<select name="tipe" class="form control">
+@elseif ($content->tipe == 'Doa')
         <option value="">Select Type</option>
         <option value="Bernyanyi">Bernyanyi</option>
-        <option value="Doa" selected="">Doa</option>
+        <option value="Doa" selected>Doa</option>
         <option value="Epistel">Epistel</option>
         <option value="Hukum Taurat">Hukum Taurat</option>
         <option value="Pengumuman">Pengumuman</option>
         <option value="Khotbah">Khotbah</option>
         <option value="Koor">Koor</option>
         <option value="Others">Others</option>
-</select>
-@endif
-@if ($content->tipe == 'Epistel')
+@elseif ($content->tipe == 'Epistel')
 	<select name="tipe" class="form control">
         <option value="">Select Type</option>
         <option value="Bernyanyi">Bernyanyi</option>
@@ -43,9 +38,7 @@
         <option value="Khotbah">Khotbah</option>
         <option value="Koor">Koor</option>
         <option value="Others">Others</option>
-</select>
-@endif
-@if ($content->tipe == 'Hukum Taurat')
+@elseif ($content->tipe == 'Hukum Taurat')
 	<select name="tipe" class="form control">
         <option value="">Select Type</option>
         <option value="Bernyanyi">Bernyanyi</option>
@@ -56,9 +49,7 @@
         <option value="Khotbah">Khotbah</option>
         <option value="Koor">Koor</option>
         <option value="Others">Others</option>
-</select>
-@endif
-@if ($content->tipe == 'Pengumuman')
+@elseif ($content->tipe == 'Pengumuman')
 	<select name="tipe" class="form control">
         <option value="">Select Type</option>
         <option value="Bernyanyi">Bernyanyi</option>
@@ -69,9 +60,7 @@
         <option value="Khotbah">Khotbah</option>
         <option value="Koor">Koor</option>
         <option value="Others">Others</option>
-</select>
-@endif
-@if ($content->tipe == 'Khotbah')
+@elseif ($content->tipe == 'Khotbah')
 	<select name="tipe" class="form control">
         <option value="">Select Type</option>
         <option value="Bernyanyi">Bernyanyi</option>
@@ -82,9 +71,7 @@
         <option value="Khotbah" selected>Khotbah</option>
         <option value="Koor">Koor</option>
         <option value="Others">Others</option>
-</select>
-@endif
-@if ($content->tipe == 'Koor')
+@elseif ($content->tipe == 'Koor')
 	<select name="tipe" class="form control">
         <option value="">Select Type</option>
         <option value="Bernyanyi">Bernyanyi</option>
@@ -95,9 +82,7 @@
         <option value="Khotbah">Khotbah</option>
         <option value="Koor" selected>Koor</option>
         <option value="Others">Others</option>
-</select>
-@endif
-@if ($content->tipe == 'Others')
+@elseif ($content->tipe == 'Others')
 	<select name="tipe" class="form control">
         <option value="">Select Type</option>
         <option value="Bernyanyi">Bernyanyi</option>
@@ -107,10 +92,19 @@
         <option value="Pengumuman">Pengumuman</option>
         <option value="Khotbah">Khotbah</option>
         <option value="Koor">Koor</option>
-        <option value="Others" selected="">Others</option>
-</select>
+        <option value="Others" selected>Others</option>
+@else
+    <option value="" selected>Select Type</option>
+        <option value="Bernyanyi">Bernyanyi</option>
+        <option value="Doa">Doa</option>
+        <option value="Epistel">Epistel</option>
+        <option value="Hukum Taurat">Hukum Taurat</option>
+        <option value="Pengumuman">Pengumuman</option>
+        <option value="Khotbah">Khotbah</option>
+        <option value="Koor">Koor</option>
+        <option value="Others">Others</option>
 @endif
-
+</select>
 	</div>@foreach ($errors->all() as $error)
                       <div style="position:relative;top:-80px;right: 400px">{{ $error }}</div>
                   @endforeach<br>

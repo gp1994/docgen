@@ -43,7 +43,7 @@ class DocgenDb extends Migration
             $table->text('isi')->nullable();
             $table->integer('id_document')->unsigned();
             $table->integer('urutan');
-            $table->integer('tipe');
+            $table->string('tipe',40);
             $table->timestamps();
         });
 

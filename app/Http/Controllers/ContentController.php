@@ -31,7 +31,7 @@ class ContentController extends Controller
     	$kat = $request->input('tipe');
         $urutan = Content::where('id_document',$id_doc)->max('urutan');
         $validator = Validator::make($request->all(), [
-            'nama' => 'required' ,
+            'judul' => 'required' ,
             'tipe' => 'required',
         ]);
         if ($validator->fails()) {
@@ -46,7 +46,6 @@ class ContentController extends Controller
 				'id_document' => $id_doc,
 				'urutan' => $urutan + 1,
 				'tipe' => $kat,
-				'status' => 0
 			]);
         
         return redirect("document$id_doc#$id_content")->with('alert_id',$id_content)->with('message',"Content '$judul' inserted successfully.");
@@ -78,7 +77,7 @@ class ContentController extends Controller
     	$kat = $request->input('tipe');
         $id_doc = $content->id_document;
          $validator = Validator::make($request->all(), [
-            'nama' => 'required',
+            'judul' => 'required',
             'tipe' => 'required',
         ]);
         if ($validator->fails()) {
@@ -94,7 +93,6 @@ class ContentController extends Controller
                 'id_document' => $id_doc,
                 'urutan' => $urutan,
                 'tipe'=> $kat,
-                'status' => 0
             ]);
 
 
@@ -131,21 +129,7 @@ class ContentController extends Controller
         return redirect("document$id_doc")->with('message_doc', "Urutan dokumen $id_doc updated successfully");
     }
 
-    public function changeEditStatus($id_content){
-        $content = Content::find($id_content);
-        $status = $content->status;
-        if($status == 0){
-            $status = 1;
-        }
-        else{
-            $status = 0;
-        }
-        $content->status = $status;
-        $content->save();
-    }
-
     public function cancelEditContent($id_content){
-        ContentController::changeEditStatus($id_content);
         $content = Content::find($id_content);
         $id_doc = $content->id_document;
         return redirect("document$id_doc#$id_content")->with('alert_id',$id_content)->with('message','Content edit canceled');
